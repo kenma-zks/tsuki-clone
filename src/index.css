@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+.font-nunito {
+  font-family: "Nunito", sans-serif;
+}
