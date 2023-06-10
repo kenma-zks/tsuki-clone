@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import pinkcap from "../images/cap_black_pink.webp";
 import corduroycap from "../images/corduroy_cap.webp";
 import whitesocks from "../images/white_socks.webp";
+import QuickViewModal from "./Card/QuickViewModal";
 
 const Accessories = () => {
   const [isItem1Hovered, setIsItem1Hovered] = useState(false);
   const [isItem2Hovered, setIsItem2Hovered] = useState(false);
   const [isItem3Hovered, setIsItem3Hovered] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <React.Fragment>
       <div
@@ -48,9 +52,13 @@ const Accessories = () => {
                 textAlign: "center",
                 letterSpacing: "2px",
               }}
+              onClick={() => setIsModalOpen(true)}
             >
               QUICK VIEW
             </div>
+          )}
+          {isModalOpen && (
+            <QuickViewModal onClose={() => setIsModalOpen(false)} />
           )}
         </div>
 
