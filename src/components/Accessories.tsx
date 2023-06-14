@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import pinkcap from "../images/cap_black_pink.webp";
 import corduroycap from "../images/corduroy_cap.webp";
 import whitesocks from "../images/white_socks.webp";
-import QuickViewModal from "./Card/QuickViewModal";
+import CapQuickViewModal from "./Card/CapQuickViewModal";
+import CorduroyQuickViewModal from "./Card/CorduroyQuickViewModal";
+import SocksQuickViewModal from "./Card/SocksQuickViewModal";
 
 const Accessories = () => {
   const [isItem1Hovered, setIsItem1Hovered] = useState(false);
@@ -10,6 +12,8 @@ const Accessories = () => {
   const [isItem3Hovered, setIsItem3Hovered] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isModalOpen3, setIsModalOpen3] = useState(false);
 
   return (
     <React.Fragment>
@@ -58,7 +62,7 @@ const Accessories = () => {
             </div>
           )}
           {isModalOpen && (
-            <QuickViewModal onClose={() => setIsModalOpen(false)} />
+            <CapQuickViewModal onClose={() => setIsModalOpen(false)} />
           )}
         </div>
 
@@ -84,9 +88,13 @@ const Accessories = () => {
                 textAlign: "center",
                 letterSpacing: "2px",
               }}
+              onClick={() => setIsModalOpen2(true)}
             >
               QUICK VIEW
             </div>
+          )}
+          {isModalOpen2 && (
+            <CorduroyQuickViewModal onClose={() => setIsModalOpen2(false)} />
           )}
         </div>
 
@@ -112,9 +120,13 @@ const Accessories = () => {
                 textAlign: "center",
                 letterSpacing: "2px",
               }}
+              onClick={() => setIsModalOpen3(true)}
             >
               QUICK VIEW
             </div>
+          )}
+          {isModalOpen3 && (
+            <SocksQuickViewModal onClose={() => setIsModalOpen3(false)} />
           )}
         </div>
       </div>

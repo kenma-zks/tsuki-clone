@@ -1,8 +1,28 @@
 import React, { useState } from "react";
+import CapQuickViewModal from "./CapQuickViewModal";
+import CorduroyQuickViewModal from "./CorduroyQuickViewModal";
 
-const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
-  const [selectedColor, setSelectedColor] = useState("Pink");
+const SocksQuickViewModal = ({ onClose }: { onClose: () => void }) => {
+  const [selectedColor, setSelectedColor] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
+
+  const [isCorduroyModalOpen, setIsCurduroyModalOpen] = useState(false);
+  const [isCapModalOpen, setIsCapModalOpen] = useState(false);
+
+  const openCorduroyModal = () => {
+    setIsCurduroyModalOpen(true);
+    setIsCapModalOpen(false);
+  };
+
+  const openCapModal = () => {
+    setIsCurduroyModalOpen(false);
+    setIsCapModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsCurduroyModalOpen(false);
+    setIsCapModalOpen(false);
+  };
 
   const [quantity, setQuantity] = useState(1);
 
@@ -23,111 +43,57 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
   const imageLinks2 = [
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_small_cropped.jpg?v=1638976238",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_3000x.jpg?v=1665576057",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/socks_3000x.jpg?v=1638976238",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_small_cropped.jpg?v=1665576057",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/socks_small_cropped.jpg?v=1638976238",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_1_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_1_3000x.jpg?v=1638976238",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_1_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_1_small_cropped.jpg?v=1638976238",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/eeee_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_2_3000x.jpg?v=1638976238",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/eeee_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_2_small_cropped.jpg?v=1638976238",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_4479_1_1_441a0f90-fcd0-474d-a744-e4d52f5fa3e6_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_3_3000x.jpg?v=1638976238",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_4479_1_1_441a0f90-fcd0-474d-a744-e4d52f5fa3e6_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_3_small_cropped.jpg?v=1638976238",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_2_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_4_3000x.jpg?v=1638976238",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_2_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_BLACK_4_small_cropped.jpg?v=1638976238",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_2_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_2_3000x.jpg?v=1619016693",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_2_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_2_small_cropped.jpg?v=1619016693",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_3_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_3_3000x.jpg?v=1619016693",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_3_small_cropped.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_3_small_cropped.jpg?v=1619016693",
     },
     {
       mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_4_3000x.jpg?v=1669120603",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_4_3000x.jpg?v=1619016693",
       previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_4_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_5_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_5_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/41_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/41_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_5_3000x.jpg?v=1642512537",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_5_small_cropped.jpg?v=1642512537",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_6_3000x.jpg?v=1642512537",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_6_small_cropped.jpg?v=1642512537",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_3_3000x.jpg?v=1642512537",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_3_small_cropped.jpg?v=1642512537",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_2_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_2_small_cropped.jpg?v=1619016090",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_3_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_3_small_cropped.jpg?v=1619016090",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_4_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_4_small_cropped.jpg?v=1619016090",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_5_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_5_small_cropped.jpg?v=1619016090",
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_4_small_cropped.jpg?v=1619016693",
     },
   ];
 
@@ -147,6 +113,7 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
             stroke="currentColor"
             className="w-9 h-9"
             color="gray"
+            onClick={openCorduroyModal}
           >
             <path
               strokeLinecap="round"
@@ -162,6 +129,7 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
             stroke="currentColor"
             className="w-9 h-9"
             color="gray"
+            onClick={openCapModal}
           >
             <path
               strokeLinecap="round"
@@ -177,6 +145,7 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
             stroke="currentColor"
             className="w-9 h-9"
             color="gray"
+            onClose={closeModal}
           >
             <path
               strokeLinecap="round"
@@ -184,17 +153,21 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
+          {isCurduroyModalOpen && (
+            <CorduroyQuickViewModal onClose={closeModal} />
+          )}
+          {isCapModalOpen && <CapQuickViewModal onClose={closeModal} />}
         </div>
         <div className="flex w-full max-h-[90vh] overflow-y-auto overflow-x-hidden">
           <div className="flex justify-center items-center w-1/2 h-full flex-col">
-            <div className="flex justify-center items-center mb-20">
+            <div className="flex justify-center items-center mb-2">
               <img
-                className="w-96 h-96 object-contain"
-                src={imageLinks2[selectedImage].mainImage}
+                className="w-[500px] h-[500px] object-contain"
+                src={imageLinks2[selectedImage]?.mainImage}
                 alt="pinkcap"
               />
             </div>
-            <div className="mr-6">
+            <div className="mr-12">
               {[...Array(4)].map((_, index) => (
                 <div key={index} className="mt-1">
                   <div className="grid grid-cols-5 gap-2">
@@ -228,14 +201,14 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
               className="text-black text-2xl px-2 font-monsterrat "
               style={{ letterSpacing: "1px" }}
             >
-              Tsuki Logo Embroidered Cap
+              Tsuki Socks
             </p>
             <div className="flex justify-center items-center">
-              <p className="text-black text-xl px-2 font-monsterrat text-center ">
-                $ 10.00 USD
+              <p className="text-[#D5D5D5] text-xl px-2 font-monsterrat text-center ">
+                $ 6.00 USD
               </p>
-              <p className="text-gray-500 text-xl px-2 py-3 text-center font-regular line-through">
-                $ 36.00 USD
+              <p className="text-[#D5D5D5] text-xl px-2 py-3 text-center font-regular line-through">
+                $ 20.00 USD
               </p>
             </div>
             <div className="flex justify-center items-start flex-col">
@@ -243,15 +216,12 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
                 Color
               </p>
               <div className="flex px-2 py-1 justify-center items-center">
-                <div className="w-6 h-6 border rounded-full bg-[#FFD9DF] cursor-pointer relative group">
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
-                    <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
-                      Pink
-                    </div>
-                  </div>
-                </div>
-
-                <div className="w-6 h-6 border border-gray-600 rounded-full bg-white mx-2 cursor-pointer relative group">
+                <div
+                  className="w-6 h-6 border rounded-full bg-white cursor-pointer relative group"
+                  onClick={() => {
+                    setSelectedImage(0);
+                  }}
+                >
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
                     <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
                       White
@@ -259,7 +229,12 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
                   </div>
                 </div>
 
-                <div className="w-6 h-6 border rounded-full bg-[#656565] cursor-pointer relative group">
+                <div
+                  className="w-6 h-6 border border-gray-600 rounded-full bg-[#656565] mx-2 cursor-pointer relative group"
+                  onClick={() => {
+                    setSelectedImage(1);
+                  }}
+                >
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
                     <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
                       Black
@@ -309,9 +284,9 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
                 className="font-monsterrat "
                 style={{ letterSpacing: "0.4px", lineHeight: "1.2" }}
               >
-                Top off your look with our twill 6 panel curved brim cap. This
-                hat is available in three different colour blocks, all detailed
-                with our kanji logo on front and...{" "}
+                Our corduroy six panel curved brim cap features a cheeky smile
+                topped with horns and detailed with TSUKI embroidery on back.
+                DETAILS: Adjustable band with metal clasp closure Embroidery...
               </p>
             </div>
             <hr className="ml-2 w-11/12 mt-4 border border-black border-t-0 border-l-0 border-r-0 border-b-1 " />
@@ -330,4 +305,4 @@ const QuickViewModal = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-export default QuickViewModal;
+export default SocksQuickViewModal;
