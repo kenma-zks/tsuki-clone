@@ -1,13 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import cover from "../images/cover.webp";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 const Navbar = () => {
   const [isHomeHovered, setIsHomeHovered] = useState(false);
   const [isSaleHovered, setIsSaleHovered] = useState(false);
   const [isCollectionsHovered, setIsCollectionsHovered] = useState(false);
-  const [isShopNowHovered, setIsShopNowHovered] = useState(false);
   return (
     <React.Fragment>
       <div
@@ -142,22 +140,6 @@ const Navbar = () => {
             </div>
           )}
         </div>
-      </div>
-      <div id="bg-pic" className="flex justify-center items-center relative">
-        <img
-          src={cover}
-          alt="Image A"
-          style={{ width: "100%", height: "950px" }}
-        />
-        <button
-          className={`absolute bottom-32 bg-black py-2 px-4 rounded-sm font-montserrat text-sm w-40  
-          ${isShopNowHovered ? "text-white" : "text-black"}
-          `}
-          onMouseEnter={() => setIsShopNowHovered(true)}
-          onMouseLeave={() => setIsShopNowHovered(false)}
-        >
-          SHOP NOW
-        </button>
       </div>
     </React.Fragment>
   );

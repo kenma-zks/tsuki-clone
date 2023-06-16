@@ -3,7 +3,6 @@ import CapQuickViewModal from "./CapQuickViewModal";
 import CorduroyQuickViewModal from "./CorduroyQuickViewModal";
 
 const SocksQuickViewModal = ({ onClose }: { onClose: () => void }) => {
-  const [selectedColor, setSelectedColor] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
 
   const [isCorduroyModalOpen, setIsCurduroyModalOpen] = useState(false);
@@ -22,6 +21,7 @@ const SocksQuickViewModal = ({ onClose }: { onClose: () => void }) => {
   const closeModal = () => {
     setIsCurduroyModalOpen(false);
     setIsCapModalOpen(false);
+    onClose();
   };
 
   const [quantity, setQuantity] = useState(1);
@@ -145,7 +145,7 @@ const SocksQuickViewModal = ({ onClose }: { onClose: () => void }) => {
             stroke="currentColor"
             className="w-9 h-9"
             color="gray"
-            onClose={closeModal}
+            onClick={closeModal}
           >
             <path
               strokeLinecap="round"
@@ -153,7 +153,7 @@ const SocksQuickViewModal = ({ onClose }: { onClose: () => void }) => {
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
-          {isCurduroyModalOpen && (
+          {isCorduroyModalOpen && (
             <CorduroyQuickViewModal onClose={closeModal} />
           )}
           {isCapModalOpen && <CapQuickViewModal onClose={closeModal} />}

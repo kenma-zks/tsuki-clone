@@ -3,7 +3,6 @@ import CapQuickViewModal from "./CapQuickViewModal";
 import SocksQuickViewModal from "./SocksQuickViewModal";
 
 const CorduroyQuickViewModal = ({ onClose }: { onClose: () => void }) => {
-  const [selectedColor, setSelectedColor] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
 
   const [isSocksModalOpen, setIsSocksModalOpen] = useState(false);
@@ -22,6 +21,7 @@ const CorduroyQuickViewModal = ({ onClose }: { onClose: () => void }) => {
   const closeModal = () => {
     setIsSocksModalOpen(false);
     setIsCapModalOpen(false);
+    onClose();
   };
 
   const [quantity, setQuantity] = useState(1);

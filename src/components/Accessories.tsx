@@ -5,6 +5,8 @@ import whitesocks from "../images/white_socks.webp";
 import CapQuickViewModal from "./Card/CapQuickViewModal";
 import CorduroyQuickViewModal from "./Card/CorduroyQuickViewModal";
 import SocksQuickViewModal from "./Card/SocksQuickViewModal";
+import CapViewPage from "../pages/CapViewPage";
+import { Link } from "react-router-dom";
 
 const Accessories = () => {
   const [isItem1Hovered, setIsItem1Hovered] = useState(false);
@@ -135,15 +137,17 @@ const Accessories = () => {
         className="w-full grid grid-cols-3 border-b border-black mb-6"
       >
         <div className="border-r border-black relative flex flex-col items-center justify-center">
-          <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
-            Tsuki Logo Embroidered Cap
-          </p>
-          <p
-            className="text-black text-sm px-2 pb-4 text-center font-montserrat"
-            style={{ letterSpacing: "-0.2px" }}
-          >
-            Sold Out
-          </p>
+          <Link to="/capview">
+            <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
+              Tsuki Logo Embroidered Cap
+            </p>
+            <p
+              className="text-black text-sm px-2 pb-4 text-center font-montserrat"
+              style={{ letterSpacing: "-0.2px" }}
+            >
+              Sold Out
+            </p>
+          </Link>
         </div>
 
         <div className="border-r border-black relative flex flex-col items-center justify-center">
