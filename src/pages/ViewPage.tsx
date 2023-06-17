@@ -9,8 +9,16 @@ import {
   RiTwitterFill,
 } from "react-icons/ri";
 import Footer from "../components/Footer";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
-const CapViewPage = () => {
+const ViewPage = () => {
+  const selectedProduct = useSelector(
+    (state: RootState) => state.products.selectedProduct
+  );
+
+  console.log(selectedProduct);
+
   const [selectedImage, setSelectedImage] = useState(0);
 
   const handleImageClick = (index: number) => {
@@ -29,116 +37,6 @@ const CapViewPage = () => {
     }
   };
 
-  const imageLinks2 = [
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_3000x.jpg?v=1665576057",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_small_cropped.jpg?v=1665576057",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_1_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_1_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/eeee_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/eeee_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_4479_1_1_441a0f90-fcd0-474d-a744-e4d52f5fa3e6_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_4479_1_1_441a0f90-fcd0-474d-a744-e4d52f5fa3e6_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_2_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_2_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_2_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_2_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_3_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_3_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_4_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_4_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_5_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_WHITE_5_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/41_3000x.jpg?v=1669120603",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/41_small_cropped.jpg?v=1669120603",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_5_3000x.jpg?v=1642512537",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_5_small_cropped.jpg?v=1642512537",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_6_3000x.jpg?v=1642512537",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_6_small_cropped.jpg?v=1642512537",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_3_3000x.jpg?v=1642512537",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_3_small_cropped.jpg?v=1642512537",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_2_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_2_small_cropped.jpg?v=1619016090",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_3_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_3_small_cropped.jpg?v=1619016090",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_4_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_4_small_cropped.jpg?v=1619016090",
-    },
-    {
-      mainImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_5_3000x.jpg?v=1619016090",
-      previewImage:
-        "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_5_small_cropped.jpg?v=1619016090",
-    },
-  ];
   return (
     <React.Fragment>
       <Banner />
@@ -167,7 +65,7 @@ const CapViewPage = () => {
           <div className="flex justify-center items-center mb-2 pl-6">
             <img
               className="w-[900px] h-[900px] object-contain"
-              src={imageLinks2[selectedImage]?.mainImage}
+              src={selectedProduct?.images[selectedImage].previewImage}
               alt="pinkcap"
             />
           </div>
@@ -175,9 +73,9 @@ const CapViewPage = () => {
             {[...Array(7)].map((_, index) => (
               <div key={index} className="mt-1">
                 <div className="grid grid-cols-8 gap-2">
-                  {imageLinks2
+                  {selectedProduct?.images
                     .slice(index * 8, (index + 1) * 8)
-                    .map((link, subIndex) => {
+                    .map((link: { previewImage: string }, subIndex: number) => {
                       const imageIndex = index * 8 + subIndex;
 
                       return (
@@ -204,14 +102,14 @@ const CapViewPage = () => {
             className="text-black text-3xl px-2 font-monsterrat "
             style={{ letterSpacing: "1px" }}
           >
-            Tsuki Logo Embroidered Cap
+            {selectedProduct?.title}
           </p>
           <div className="flex justify-center items-center">
             <p className="text-[#D5D5D5] text-2xl px-2 font-monsterrat text-center ">
-              $ 10.00 USD
+              $ {selectedProduct?.discountedPrice} USD
             </p>
             <p className="text-[#D5D5D5] text-2xl px-2 py-3 text-center font-regular line-through">
-              $ 36.00 USD
+              $ {selectedProduct?.originalPrice} USD
             </p>
           </div>
           <div className="flex justify-center items-start flex-col">
@@ -219,44 +117,21 @@ const CapViewPage = () => {
               Color
             </p>
             <div className="flex px-2 py-1 justify-center items-center">
-              <div
-                className="w-6 h-6 border rounded-full bg-[#FFD9DF] cursor-pointer relative group"
-                onClick={() => {
-                  setSelectedImage(0);
-                }}
-              >
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
-                  <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
-                    Pink
+              {selectedProduct?.colors.map((color, index) => (
+                <div
+                  key={index}
+                  className={`w-6 h-6 mr-2 border rounded-full bg-[${color.value}] cursor-pointer relative group`}
+                  onClick={() => {
+                    setSelectedImage(index);
+                  }}
+                >
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
+                    <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
+                      {color.name}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div
-                className="w-6 h-6 border border-gray-600 rounded-full bg-white mx-2 cursor-pointer relative group"
-                onClick={() => {
-                  setSelectedImage(2);
-                }}
-              >
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
-                  <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
-                    White
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="w-6 h-6 border rounded-full bg-[#656565] cursor-pointer relative group"
-                onClick={() => {
-                  setSelectedImage(1);
-                }}
-              >
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
-                  <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
-                    Black
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="ml-2 py-2 mt-4 flex items-center border border-black w-32 justify-between">
@@ -293,16 +168,16 @@ const CapViewPage = () => {
             </svg>
           </div>
           <div className="ml-2 py-2 flex justify-center items-center mt-6 w-48 bg-[#E6E6E6]">
-            <p className="font-bold text-lg text-[#999999]"> Sold Out</p>
+            <p className="font-bold text-lg text-[#999999]">
+              {selectedProduct?.productStatus}
+            </p>
           </div>
           <div className="ml-2 pr-32 flex justify-center items-center mt-6 w-full">
             <p
               className="font-monsterrat"
               style={{ letterSpacing: "0.4px", lineHeight: "1.2" }}
             >
-              Top off your look with our twill 6 panel curved brim cap. This hat
-              is available in three different colour blocks, all detailed with
-              our kanji logo on front and Tsuki logo on back.
+              {selectedProduct?.description}
             </p>
           </div>
           <div className="ml-2 pr-32 flex justify-start items-start mt-10 w-full">
@@ -318,14 +193,9 @@ const CapViewPage = () => {
             style={{ letterSpacing: "0.4px", lineHeight: "1.4" }}
           >
             <ul className="list-disc list-inside">
-              <li className="mb-1">Adjustable band with metal clasp closure</li>
-              <li className="mb-1">
-                Embroidery Details on front and back, made of 100% cotton
-              </li>
-              <li className="mb-1">
-                Care Instructions: Hand wash with soap and water and air dry. Do
-                not put in the washer/dryer
-              </li>
+              {selectedProduct?.details.map((detail: string, index: number) => (
+                <li key={index}>{detail}</li>
+              ))}
             </ul>
           </div>
           <hr className="ml-2 w-10/12 mt-4 border border-black border-t-0 border-l-0 border-r-0 border-b-1 " />
@@ -386,18 +256,28 @@ const CapViewPage = () => {
       <div className="flex justify-center items-center mt-10 w-full border border-black">
         <p className="font-thin text-2xl py-4">Recently Viewed</p>
       </div>
-      <div className="flex justify-start items-center w-1/4 border border-r-black border-b-black">
-        <img
-          src="//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg"
-          alt="cap"
-          className="w-[600px] h-[400px] object-cover"
-        />
+      <div className="flex">
+        {selectedProduct?.recentlyViewed.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col justify-start items-center w-1/4 border border-r-black border-b-black"
+          >
+            <div className="border-b border-black">
+              <img
+                src={item.image}
+                alt="cap"
+                className="w-[600px] h-[400px] object-cover"
+              />
+            </div>
+            <div className="text-center">
+              <p className="text-sm py-4" style={{ letterSpacing: "0.6px" }}>
+                {item.title}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
-      <div className="flex justify-center items-center w-1/4 border border-r-black border-b-black">
-        <p className="text-sm py-4" style={{ letterSpacing: "0.6px" }}>
-          Corduroy Tsuki Cap
-        </p>
-      </div>
+
       <div className="w-full bg-black h-auto">
         <Footer />
       </div>
@@ -405,4 +285,4 @@ const CapViewPage = () => {
   );
 };
 
-export default CapViewPage;
+export default ViewPage;

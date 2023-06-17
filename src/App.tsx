@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
-import CapViewPage from "./pages/CapViewPage";
+import ViewPage from "./pages/ViewPage";
 
 const router = createBrowserRouter([
   {
@@ -8,8 +8,8 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/capview",
-    element: <CapViewPage />,
+    path: "/viewpage",
+    element: <ViewPage />,
   },
 ]);
 

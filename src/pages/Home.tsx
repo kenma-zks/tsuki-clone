@@ -1,6 +1,5 @@
 import Accessories from "../components/Accessories";
 import Banner from "../components/Banner";
-import BgImg from "../components/BgImg";
 import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";
 import Header from "../components/Header";

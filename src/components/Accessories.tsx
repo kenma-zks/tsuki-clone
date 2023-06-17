@@ -5,10 +5,18 @@ import whitesocks from "../images/white_socks.webp";
 import CapQuickViewModal from "./Card/CapQuickViewModal";
 import CorduroyQuickViewModal from "./Card/CorduroyQuickViewModal";
 import SocksQuickViewModal from "./Card/SocksQuickViewModal";
-import CapViewPage from "../pages/CapViewPage";
 import { Link } from "react-router-dom";
+import { setSelectedProduct } from "../store/productSlice";
+import {
+  CorduroyCapDetails,
+  PinkCapDetails,
+  TsukiSocksDetails,
+} from "./Links/ImageLinks";
+import { useDispatch } from "react-redux";
 
 const Accessories = () => {
+  const dispatch = useDispatch();
+
   const [isItem1Hovered, setIsItem1Hovered] = useState(false);
   const [isItem2Hovered, setIsItem2Hovered] = useState(false);
   const [isItem3Hovered, setIsItem3Hovered] = useState(false);
@@ -137,40 +145,53 @@ const Accessories = () => {
         className="w-full grid grid-cols-3 border-b border-black mb-6"
       >
         <div className="border-r border-black relative flex flex-col items-center justify-center">
-          <Link to="/capview">
+          <Link
+            to="/viewpage/"
+            onClick={() => dispatch(setSelectedProduct(PinkCapDetails))}
+          >
             <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
-              Tsuki Logo Embroidered Cap
+              {PinkCapDetails.title}
             </p>
             <p
               className="text-black text-sm px-2 pb-4 text-center font-montserrat"
               style={{ letterSpacing: "-0.2px" }}
             >
-              Sold Out
+              {PinkCapDetails.productStatus}
             </p>
           </Link>
         </div>
 
         <div className="border-r border-black relative flex flex-col items-center justify-center">
-          <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
-            Conduroy Tsuki Cap
-          </p>
-          <p
-            className="text-black text-sm px-2 pb-4 text-center font-montserrat"
-            style={{ letterSpacing: "-0.2px" }}
+          <Link
+            to="/viewpage/"
+            onClick={() => dispatch(setSelectedProduct(CorduroyCapDetails))}
           >
-            Sold Out
-          </p>
+            <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
+              {CorduroyCapDetails.title}
+            </p>
+            <p
+              className="text-black text-sm px-2 pb-4 text-center font-montserrat"
+              style={{ letterSpacing: "-0.2px" }}
+            >
+              {CorduroyCapDetails.productStatus}
+            </p>
+          </Link>
         </div>
         <div className="border-r border-black relative flex flex-col items-center justify-center">
-          <p className="text-black text-sm pb-1 pt-5 text-center font-montserrat">
-            Tsuki Socks
-          </p>
-          <p
-            className="text-black text-sm px-2 pb-4 text-center font-montserrat"
-            style={{ letterSpacing: "-0.2px" }}
+          <Link
+            to="/viewpage/"
+            onClick={() => dispatch(setSelectedProduct(TsukiSocksDetails))}
           >
-            Sold Out
-          </p>
+            <p className="text-black text-sm pb-1 pt-5 text-center font-montserrat">
+              {TsukiSocksDetails.title}
+            </p>
+            <p
+              className="text-black text-sm px-2 pb-4 text-center font-montserrat"
+              style={{ letterSpacing: "-0.2px" }}
+            >
+              {TsukiSocksDetails.productStatus}
+            </p>
+          </Link>
         </div>
       </div>
     </React.Fragment>
