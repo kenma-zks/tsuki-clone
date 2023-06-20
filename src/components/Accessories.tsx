@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import pinkcap from "../images/cap_black_pink.webp";
 import corduroycap from "../images/corduroy_cap.webp";
 import whitesocks from "../images/white_socks.webp";
-import CapQuickViewModal from "./Card/CapQuickViewModal";
-import CorduroyQuickViewModal from "./Card/CorduroyQuickViewModal";
-import SocksQuickViewModal from "./Card/SocksQuickViewModal";
 import { Link } from "react-router-dom";
 import { setSelectedProduct } from "../store/productSlice";
 import {
@@ -13,6 +10,7 @@ import {
   TsukiSocksDetails,
 } from "./Links/ImageLinks";
 import { useDispatch } from "react-redux";
+import ViewModal from "./Card/ViewModal";
 
 const Accessories = () => {
   const dispatch = useDispatch();
@@ -22,8 +20,40 @@ const Accessories = () => {
   const [isItem3Hovered, setIsItem3Hovered] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpen2, setIsModalOpen2] = useState(false);
-  const [isModalOpen3, setIsModalOpen3] = useState(false);
+
+  const [selectedModalIndex, setSelectedModalIndex] = useState<number | null>(
+    null
+  );
+
+  const openModal = (index: number) => {
+    setSelectedModalIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedModalIndex(null);
+  };
+
+  const handlePreviousModal = () => {
+    if (selectedModalIndex !== null) {
+      if (selectedModalIndex === 0) {
+        setSelectedModalIndex(2);
+      } else {
+        setSelectedModalIndex(selectedModalIndex - 1);
+      }
+    }
+  };
+
+  const handleNextModal = () => {
+    if (selectedModalIndex !== null) {
+      if (selectedModalIndex === 2) {
+        setSelectedModalIndex(0);
+      } else {
+        setSelectedModalIndex(selectedModalIndex + 1);
+      }
+    }
+  };
 
   return (
     <React.Fragment>
@@ -48,6 +78,9 @@ const Accessories = () => {
           className="border-r border-black relative flex items-center "
           onMouseEnter={() => setIsItem1Hovered(true)}
           onMouseLeave={() => setIsItem1Hovered(false)}
+          onClick={() => {
+            openModal(0);
+          }}
         >
           <img src={pinkcap} alt="pinkcap" />
           <div
@@ -66,13 +99,13 @@ const Accessories = () => {
                 textAlign: "center",
                 letterSpacing: "2px",
               }}
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                dispatch(setSelectedProduct(PinkCapDetails));
+              }}
             >
               QUICK VIEW
             </div>
-          )}
-          {isModalOpen && (
-            <CapQuickViewModal onClose={() => setIsModalOpen(false)} />
           )}
         </div>
 
@@ -80,6 +113,9 @@ const Accessories = () => {
           className="border-r border-black relative flex items-center"
           onMouseEnter={() => setIsItem2Hovered(true)}
           onMouseLeave={() => setIsItem2Hovered(false)}
+          onClick={() => {
+            openModal(1);
+          }}
         >
           <img src={corduroycap} alt="pinkcap" />
           <div
@@ -98,13 +134,13 @@ const Accessories = () => {
                 textAlign: "center",
                 letterSpacing: "2px",
               }}
-              onClick={() => setIsModalOpen2(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                dispatch(setSelectedProduct(CorduroyCapDetails));
+              }}
             >
               QUICK VIEW
             </div>
-          )}
-          {isModalOpen2 && (
-            <CorduroyQuickViewModal onClose={() => setIsModalOpen2(false)} />
           )}
         </div>
 
@@ -112,6 +148,9 @@ const Accessories = () => {
           className="border-r border-black relative flex items-center"
           onMouseEnter={() => setIsItem3Hovered(true)}
           onMouseLeave={() => setIsItem3Hovered(false)}
+          onClick={() => {
+            openModal(2);
+          }}
         >
           <img src={whitesocks} alt="pinkcap" />
           <div
@@ -130,13 +169,13 @@ const Accessories = () => {
                 textAlign: "center",
                 letterSpacing: "2px",
               }}
-              onClick={() => setIsModalOpen3(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                dispatch(setSelectedProduct(TsukiSocksDetails));
+              }}
             >
               QUICK VIEW
             </div>
-          )}
-          {isModalOpen3 && (
-            <SocksQuickViewModal onClose={() => setIsModalOpen3(false)} />
           )}
         </div>
       </div>
@@ -146,7 +185,7 @@ const Accessories = () => {
       >
         <div className="border-r border-black relative flex flex-col items-center justify-center">
           <Link
-            to="/viewpage/"
+            to={`/viewpage/${PinkCapDetails.id}`}
             onClick={() => dispatch(setSelectedProduct(PinkCapDetails))}
           >
             <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
@@ -163,7 +202,7 @@ const Accessories = () => {
 
         <div className="border-r border-black relative flex flex-col items-center justify-center">
           <Link
-            to="/viewpage/"
+            to={`/viewpage/${CorduroyCapDetails.id}`}
             onClick={() => dispatch(setSelectedProduct(CorduroyCapDetails))}
           >
             <p className="text-black text-sm px-2 pb-1 pt-5 text-center font-montserrat">
@@ -179,7 +218,7 @@ const Accessories = () => {
         </div>
         <div className="border-r border-black relative flex flex-col items-center justify-center">
           <Link
-            to="/viewpage/"
+            to={`/viewpage/${TsukiSocksDetails.id}`}
             onClick={() => dispatch(setSelectedProduct(TsukiSocksDetails))}
           >
             <p className="text-black text-sm pb-1 pt-5 text-center font-montserrat">
@@ -194,6 +233,20 @@ const Accessories = () => {
           </Link>
         </div>
       </div>
+      {selectedModalIndex !== null && (
+        <ViewModal
+          onClose={closeModal}
+          onPrevious={handlePreviousModal}
+          onNext={handleNextModal}
+          selectedProduct={
+            selectedModalIndex === 0
+              ? PinkCapDetails
+              : selectedModalIndex === 1
+              ? CorduroyCapDetails
+              : TsukiSocksDetails
+          }
+        />
+      )}
     </React.Fragment>
   );
 };

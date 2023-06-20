@@ -30,6 +30,13 @@ export const PinkCapDetails = {
       image:
         "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
       title: "Corduroy Tsuki Cap",
+      id: "corduroy-cap",
+    },
+    {
+      image:
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+      title: "Tsuki Socks",
+      id: "tsuki-socks",
     },
   ],
   images: [
@@ -173,6 +180,13 @@ export const CorduroyCapDetails = {
       image:
         "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_600x.jpg",
       title: "Tsuki Logo Embroidered Cap",
+      id: "pink-cap",
+    },
+    {
+      image:
+        "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+      title: "Tsuki Socks",
+      id: "tsuki-socks",
     },
   ],
   images: [
@@ -260,11 +274,13 @@ export const TsukiSocksDetails = {
       image:
         "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
       title: "Corduroy Tsuki Cap",
+      id: "corduroy-cap",
     },
     {
       image:
         "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_600x.jpg",
       title: "Tsuki Logo Embroidered Cap",
+      id: "pink-cap",
     },
   ],
   images: [

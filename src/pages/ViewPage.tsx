@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   RiFacebookBoxFill,
   RiPinterestFill,
   RiTwitterFill,
 } from "react-icons/ri";
 import Footer from "../components/Footer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import {
+  CorduroyCapDetails,
+  PinkCapDetails,
+  TsukiSocksDetails,
+} from "../components/Links/ImageLinks";
+import { setSelectedProduct } from "../store/productSlice";
 
 const ViewPage = () => {
+  const dispatch = useDispatch();
+
+  const productData = [PinkCapDetails, CorduroyCapDetails, TsukiSocksDetails];
+
+  const { productId } = useParams<{ productId?: string }>();
+
   const selectedProduct = useSelector(
     (state: RootState) => state.products.selectedProduct
   );
@@ -36,6 +48,11 @@ const ViewPage = () => {
       setQuantity((prev) => prev - 1);
     }
   };
+
+  useEffect(() => {
+    const product = productData.find((product) => product.id === productId);
+    dispatch(setSelectedProduct(product || null));
+  }, [dispatch, productId, productData]);
 
   return (
     <React.Fragment>
@@ -65,7 +82,7 @@ const ViewPage = () => {
           <div className="flex justify-center items-center mb-2 pl-6">
             <img
               className="w-[900px] h-[900px] object-contain"
-              src={selectedProduct?.images[selectedImage].previewImage}
+              src={selectedProduct?.images[selectedImage].mainImage}
               alt="pinkcap"
             />
           </div>
@@ -262,18 +279,20 @@ const ViewPage = () => {
             key={index}
             className="flex flex-col justify-start items-center w-1/4 border border-r-black border-b-black"
           >
-            <div className="border-b border-black">
-              <img
-                src={item.image}
-                alt="cap"
-                className="w-[600px] h-[400px] object-cover"
-              />
-            </div>
-            <div className="text-center">
-              <p className="text-sm py-4" style={{ letterSpacing: "0.6px" }}>
-                {item.title}
-              </p>
-            </div>
+            <Link to={`/viewpage/${item.id}`}>
+              <div className="border-b border-black">
+                <img
+                  src={item.image}
+                  alt="cap"
+                  className="w-[600px] h-[400px] object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <p className="text-sm py-4" style={{ letterSpacing: "0.6px" }}>
+                  {item.title}
+                </p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>

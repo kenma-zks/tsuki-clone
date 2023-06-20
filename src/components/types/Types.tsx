@@ -7,6 +7,6 @@ export interface Product {
   colors: { name: string; value: string }[];
   description: string;
   details: string[];
-  recentlyViewed: { image: string; title: string }[];
+  recentlyViewed: { image: string; title: string; id: string }[];
   images: { mainImage: string; previewImage: string }[];
 }
