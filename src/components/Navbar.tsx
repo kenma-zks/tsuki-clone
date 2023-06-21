@@ -21,7 +21,7 @@ const Navbar = () => {
           >
             <p
               className={`text-black text-md px-2 py-3 w-60 text-center font-regular
-              ${isHomeHovered ? "text-blue-500" : "text-black"}`}
+              ${isHomeHovered ? "text-blue-300" : "text-black"}`}
               style={{ letterSpacing: "-0.8px" }}
             >
               HOME ホームページ
@@ -50,12 +50,14 @@ const Navbar = () => {
           </div>
         </div>
 
-        <p
-          className="text-black text-md px-2 py-3 w-40 text-center font-regular "
-          style={{ letterSpacing: "-0.8px" }}
-        >
-          SALE 大売り出し
-        </p>
+        <Link to="/sale">
+          <p
+            className="text-black text-md px-2 py-3 w-40 text-center font-regular hover:text-blue-300 cursor-pointer"
+            style={{ letterSpacing: "-0.8px" }}
+          >
+            SALE 大売り出し
+          </p>
+        </Link>
 
         <div className="relative">
           <div
