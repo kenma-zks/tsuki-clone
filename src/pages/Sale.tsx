@@ -3,79 +3,120 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
+import { SaleItems } from "../components/Links/SaleItemsLink";
+import SaleItemsModal from "../components/Card/SaleItemsModal";
+import { useDispatch } from "react-redux";
+import { setSelectedProduct } from "../store/SalesProductSlice";
 
-const SaleItems = [
-  {
-    id: 1,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
-    name: "Embroidered Logo T-Shirt",
-  },
-  {
-    id: 2,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/bhat_3000x.png?v=1675454228",
-    name: "Smiley Embroidered Bucket Hat",
-  },
-  {
-    id: 3,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_3000x.jpg?v=1665576057",
-    name: "Corduroy Tsuki Cap",
-  },
-  {
-    id: 4,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
-    name: "Tsuki Logo Embroidered Cap",
-  },
-  {
-    id: 5,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_9448_3000x.jpg?v=1675454799",
-    name: "Melted Socks",
-  },
-  {
-    id: 6,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
-    name: "Tsuki Socks",
-  },
-  {
-    id: 7,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/meltedtotehero_3000x.jpg?v=1652110249",
-    name: "Melted Tote Bag",
-  },
-  {
-    id: 8,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/tmcorduroypants_3000x.jpg?v=1638456234",
-    name: "Mischief Corduroy Trousers",
-  },
-  {
-    id: 9,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/tsblacktshirt_3000x.jpg?v=1638455978",
-    name: "Mischief Pocket T-Shirt",
-  },
-  {
-    id: 10,
-    image:
-      "//cdn.shopify.com/s/files/1/2321/0267/products/tmflannel_3000x.jpg?v=1638457194",
-    name: "Mischief Flannel Button Up",
-  },
-];
+// const SaleItems = [
+//   {
+//     id: 1,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+//     name: "Embroidered Logo T-Shirt",
+//   },
+//   {
+//     id: 2,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/bhat_3000x.png?v=1675454228",
+//     name: "Smiley Embroidered Bucket Hat",
+//   },
+//   {
+//     id: 3,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_3000x.jpg?v=1665576057",
+//     name: "Corduroy Tsuki Cap",
+//   },
+//   {
+//     id: 4,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
+//     name: "Tsuki Logo Embroidered Cap",
+//   },
+//   {
+//     id: 5,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_9448_3000x.jpg?v=1675454799",
+//     name: "Melted Socks",
+//   },
+//   {
+//     id: 6,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
+//     name: "Tsuki Socks",
+//   },
+//   {
+//     id: 7,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/meltedtotehero_3000x.jpg?v=1652110249",
+//     name: "Melted Tote Bag",
+//   },
+//   {
+//     id: 8,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/tmcorduroypants_3000x.jpg?v=1638456234",
+//     name: "Mischief Corduroy Trousers",
+//   },
+//   {
+//     id: 9,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/tsblacktshirt_3000x.jpg?v=1638455978",
+//     name: "Mischief Pocket T-Shirt",
+//   },
+//   {
+//     id: 10,
+//     image:
+//       "//cdn.shopify.com/s/files/1/2321/0267/products/tmflannel_3000x.jpg?v=1638457194",
+//     name: "Mischief Flannel Button Up",
+//   },
+// ];
 
 const Sale = () => {
-  const [hoveredItemId, setHoveredItemId] = useState<number | null>(null);
+  const dispatch = useDispatch();
 
-  const handleItemHover = (itemId: number) => {
-    setHoveredItemId(itemId);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedModalIndex, setSelectedModalIndex] = useState<number | null>(
+    null
+  );
+
+  const handleItemHover = (itemId: string) => {
+    setHoveredItem(itemId);
+  };
+
+  const handleModalOpen = (index: number) => {
+    setIsModalOpen(true);
+    setSelectedModalIndex(index);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedModalIndex(null);
+  };
+
+  const handlePreviousModal = () => {
+    if (selectedModalIndex !== null) {
+      if (selectedModalIndex === 0) {
+        setSelectedModalIndex(2);
+      } else {
+        setSelectedModalIndex(selectedModalIndex - 1);
+      }
+    }
+  };
+
+  const handleNextModal = () => {
+    if (selectedModalIndex !== null) {
+      if (selectedModalIndex === 2) {
+        setSelectedModalIndex(0);
+      } else {
+        setSelectedModalIndex(selectedModalIndex + 1);
+      }
+    }
   };
 
   const handleItemLeave = () => {
-    setHoveredItemId(null);
+    setHoveredItem(null);
   };
 
   return (
@@ -93,6 +134,7 @@ const Sale = () => {
               key={item.id}
               onMouseEnter={() => handleItemHover(item.id)}
               onMouseLeave={handleItemLeave}
+              onClick={() => handleModalOpen(index)}
             >
               <div className="border-r border-t border-b border-black ">
                 <img src={item.image} alt="pinkcap" />
@@ -105,7 +147,7 @@ const Sale = () => {
               </div>
               <div className="border-r border-black relative text-center w-full">
                 <p className="text-black text-sm px-2 pb-1 pt-5 font-montserrat">
-                  {item.name}
+                  {item.title}
                 </p>
                 <p
                   className="text-black text-sm px-2 pb-4 font-montserrat"
@@ -113,15 +155,19 @@ const Sale = () => {
                 >
                   Sold Out
                 </p>
-                {hoveredItemId === item.id && (
+                {hoveredItem === item.id && (
                   <div
-                    className="absolute bg-[#F4E0EA] text-black border-t border-black py-4 px-6 font-montserrat font-regular text-xs tracking-widest"
+                    className="absolute bg-[#F4E0EA] text-black border-t border-black py-4 px-6 font-montserrat font-regular text-xs tracking-widest cursor-pointer"
                     style={{
                       top: "-62%",
                       left: "0",
                       width: "100%",
                       textAlign: "center",
                       letterSpacing: "2px",
+                    }}
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      dispatch(setSelectedProduct(item));
                     }}
                   >
                     QUICK VIEW
@@ -130,6 +176,14 @@ const Sale = () => {
               </div>
             </div>
           ))}
+          {selectedModalIndex !== null && (
+            <SaleItemsModal
+              onClose={handleModalClose}
+              onPrevious={handlePreviousModal}
+              onNext={handleNextModal}
+              selectedProduct={SaleItems[selectedModalIndex]}
+            />
+          )}
         </div>
       </div>
       <div className="w-full bg-black">

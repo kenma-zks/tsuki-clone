@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Product } from "../types/Types";
+import { SalesProduct } from "../types/Types";
 
-const ViewModal = ({
+const SaleItemsModal = ({
   onClose,
   onPrevious,
   onNext,
@@ -10,9 +10,10 @@ const ViewModal = ({
   onClose: () => void;
   onPrevious: () => void;
   onNext: () => void;
-  selectedProduct: Product;
+  selectedProduct: SalesProduct;
 }) => {
   const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedSize, setSelectedSize] = useState("");
 
   const closeModal = () => {
     onClose();
@@ -46,17 +47,17 @@ const ViewModal = ({
     <React.Fragment>
       <div
         className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center"
-        onClick={onClose}
+        onClick={closeModal}
       ></div>
       <div className="fixed top-2 bottom-2 left-0 right-0 bg-white mx-auto max-w-[62%] z-50 p-4 ">
-        <div className="flex justify-end">
+        <div className="flex justify-end ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1}
             stroke="currentColor"
-            className="w-9 h-9"
+            className="w-9 h-9 hover:cursor-pointer hover:text-gray-200"
             color="gray"
             onClick={previousModal}
           >
@@ -72,7 +73,7 @@ const ViewModal = ({
             viewBox="0 0 24 24"
             strokeWidth={1}
             stroke="currentColor"
-            className="w-9 h-9"
+            className="w-9 h-9 hover:cursor-pointer hover:text-gray-200"
             color="gray"
             onClick={nextModal}
           >
@@ -88,7 +89,7 @@ const ViewModal = ({
             viewBox="0 0 24 24"
             strokeWidth={1}
             stroke="currentColor"
-            className="w-9 h-9"
+            className="w-9 h-9 hover:cursor-pointer hover:text-gray-200"
             color="gray"
             onClick={closeModal}
           >
@@ -127,7 +128,11 @@ const ViewModal = ({
                             }`}
                             onClick={() => handleImageClick(imageIndex)}
                           >
-                            <img src={link.previewImage} />
+                            <img
+                              src={link.previewImage}
+                              className="w-full h-full object-cover"
+                              alt=""
+                            />
                           </div>
                         );
                       })}
@@ -145,38 +150,78 @@ const ViewModal = ({
               {selectedProduct?.title}
             </p>
             <div className="flex justify-center items-center">
-              <p className="text-[#D5D5D5] text-xl px-2 font-monsterrat text-center ">
+              <p className="text-[#373737] text-xl px-2 font-monsterrat text-center ">
                 $ {selectedProduct?.discountedPrice} USD
               </p>
-              <p className="text-[#D5D5D5] text-xl px-2 py-3 text-center font-regular line-through">
+              <p className="text-[#4B4B4B] text-xl px-2 py-3 text-center font-regular line-through">
                 $ {selectedProduct?.originalPrice} USD
               </p>
             </div>
-            <div className="flex justify-center items-start flex-col">
-              <p className="text-black text-sm px-2 py-1 font-monsterrat text-center ">
-                Color
-              </p>
-              <div className="flex px-2 py-1 justify-center items-center">
-                {selectedProduct?.colors.map((color, index) => (
-                  <div
-                    key={index}
-                    className={`w-6 h-6 mr-2 border rounded-full bg-[${color.value}] cursor-pointer relative group`}
-                    onClick={() => {
-                      setSelectedImage(index);
-                    }}
-                  >
-                    {selectedImage === index && (
-                      <div className="absolute w-8 h-8 border-2 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                    )}
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
-                      <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
-                        {color.name}
+            {selectedProduct?.colors && selectedProduct.colors.length > 0 && (
+              <div className="flex justify-center items-start flex-col">
+                <p className="text-black text-sm px-2 py-1 font-monsterrat text-center">
+                  Color
+                </p>
+                <div className="flex px-2 py-1 justify-center items-center">
+                  {selectedProduct.colors.map((color, index) => (
+                    <div
+                      key={index}
+                      className={`w-6 h-6 mr-2 border rounded-full bg-[${color.value}] cursor-pointer relative group`}
+                      onClick={() => {
+                        setSelectedImage(index);
+                      }}
+                    >
+                      {selectedImage === index && (
+                        <div className="absolute w-8 h-8 border-2 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                      )}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100">
+                        <div className="border border-black bg-white text-black text-xs px-2 py-0.5 mt-2 rounded-sm">
+                          {color.name}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
+
+            {selectedProduct?.size && selectedProduct.size.length > 0 && (
+              <div className="flex justify-center items-start flex-col">
+                <p className="text-black text-sm px-2 py-1 font-monsterrat text-center mt-1">
+                  Size
+                </p>
+                <div className="ml-2 py-2 mt-2 flex items-center border border-black w-96 relative">
+                  <select
+                    className="outline-none cursor-pointer bg-transparent appearance-none pl-4 pr-8 font-monsterrat text-black w-full"
+                    value={selectedSize}
+                    onChange={(e) => setSelectedSize(e.target.value)}
+                  >
+                    {selectedProduct.size.map((size, index) => (
+                      <option key={index} value={size.name}>
+                        {size.name}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-2 top-3 pointer-events-none">
+                    <svg
+                      className="w-4 h-4 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="ml-2 py-2 mt-4 flex items-center border border-black w-32 justify-between">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -237,4 +282,4 @@ const ViewModal = ({
   );
 };
 
-export default ViewModal;
+export default SaleItemsModal;
