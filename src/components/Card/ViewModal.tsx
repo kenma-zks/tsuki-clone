@@ -157,7 +157,7 @@ const ViewModal = ({
                 Color
               </p>
               <div className="flex px-2 py-1 justify-center items-center">
-                {selectedProduct?.colors.map((color, index) => (
+                {selectedProduct?.colors?.map((color, index) => (
                   <div
                     key={index}
                     className={`w-6 h-6 mr-2 border rounded-full bg-[${color.value}] cursor-pointer relative group`}

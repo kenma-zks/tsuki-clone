@@ -11,25 +11,21 @@ import {
 import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import {
-  CorduroyCapDetails,
-  PinkCapDetails,
-  TsukiSocksDetails,
-} from "../components/Links/ImageLinks";
 import { setSelectedProduct } from "../store/productSlice";
+import { SaleItems } from "../components/Links/SaleItemsLink";
+import { AccessoriesLink } from "../components/Links/ImageLinks";
 
 const ViewPage = () => {
   const dispatch = useDispatch();
 
-  const productData = [PinkCapDetails, CorduroyCapDetails, TsukiSocksDetails];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const productData = [...SaleItems, ...AccessoriesLink];
 
   const { productId } = useParams<{ productId?: string }>();
 
   const selectedProduct = useSelector(
     (state: RootState) => state.products.selectedProduct
   );
-
-  console.log(selectedProduct);
 
   const [selectedImage, setSelectedImage] = useState(0);
 
@@ -50,7 +46,9 @@ const ViewPage = () => {
   };
 
   useEffect(() => {
-    const product = productData.find((product) => product.id === productId);
+    const product = productData.find((product) => {
+      return product.id === productId;
+    });
     dispatch(setSelectedProduct(product || null));
   }, [dispatch, productId, productData]);
 
@@ -134,7 +132,7 @@ const ViewPage = () => {
               Color
             </p>
             <div className="flex px-2 py-1 justify-center items-center">
-              {selectedProduct?.colors.map((color, index) => (
+              {selectedProduct?.colors?.map((color, index) => (
                 <div
                   key={index}
                   className={`w-6 h-6 mr-2 border rounded-full bg-[${color.value}] cursor-pointer relative group`}

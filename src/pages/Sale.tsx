@@ -6,70 +6,8 @@ import Navbar from "../components/Navbar";
 import { SaleItems } from "../components/Links/SaleItemsLink";
 import SaleItemsModal from "../components/Card/SaleItemsModal";
 import { useDispatch } from "react-redux";
-import { setSelectedProduct } from "../store/SalesProductSlice";
-
-// const SaleItems = [
-//   {
-//     id: 1,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
-//     name: "Embroidered Logo T-Shirt",
-//   },
-//   {
-//     id: 2,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/bhat_3000x.png?v=1675454228",
-//     name: "Smiley Embroidered Bucket Hat",
-//   },
-//   {
-//     id: 3,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_BLACK_PINK_1_3000x.jpg?v=1665576057",
-//     name: "Corduroy Tsuki Cap",
-//   },
-//   {
-//     id: 4,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
-//     name: "Tsuki Logo Embroidered Cap",
-//   },
-//   {
-//     id: 5,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_9448_3000x.jpg?v=1675454799",
-//     name: "Melted Socks",
-//   },
-//   {
-//     id: 6,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
-//     name: "Tsuki Socks",
-//   },
-//   {
-//     id: 7,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/meltedtotehero_3000x.jpg?v=1652110249",
-//     name: "Melted Tote Bag",
-//   },
-//   {
-//     id: 8,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/tmcorduroypants_3000x.jpg?v=1638456234",
-//     name: "Mischief Corduroy Trousers",
-//   },
-//   {
-//     id: 9,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/tsblacktshirt_3000x.jpg?v=1638455978",
-//     name: "Mischief Pocket T-Shirt",
-//   },
-//   {
-//     id: 10,
-//     image:
-//       "//cdn.shopify.com/s/files/1/2321/0267/products/tmflannel_3000x.jpg?v=1638457194",
-//     name: "Mischief Flannel Button Up",
-//   },
-// ];
+import { setSelectedProduct } from "../store/productSlice";
+import { Link } from "react-router-dom";
 
 const Sale = () => {
   const dispatch = useDispatch();
@@ -146,15 +84,17 @@ const Sale = () => {
                 </div>
               </div>
               <div className="border-r border-black relative text-center w-full">
-                <p className="text-black text-sm px-2 pb-1 pt-5 font-montserrat">
-                  {item.title}
-                </p>
-                <p
-                  className="text-black text-sm px-2 pb-4 font-montserrat"
-                  style={{ letterSpacing: "-0.2px" }}
-                >
-                  Sold Out
-                </p>
+                <Link to={`/viewpage/${item.id}`}>
+                  <p className="text-black text-sm px-2 pb-1 pt-5 font-montserrat">
+                    {item.title}
+                  </p>
+                  <p
+                    className="text-black text-sm px-2 pb-4 font-montserrat"
+                    style={{ letterSpacing: "-0.2px" }}
+                  >
+                    Sold Out
+                  </p>
+                </Link>
                 {hoveredItem === item.id && (
                   <div
                     className="absolute bg-[#F4E0EA] text-black border-t border-black py-4 px-6 font-montserrat font-regular text-xs tracking-widest cursor-pointer"

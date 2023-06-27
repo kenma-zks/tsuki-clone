@@ -161,9 +161,9 @@ export const SaleItems = [
     images: [
       {
         mainImage:
-          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
+          "//cdn.shopify.com/s/files/1/2321/0267/products/bhat_3000x.png?v=1675454228",
         previewImage:
-          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_small_cropped.jpg?v=1638976238",
+          "//cdn.shopify.com/s/files/1/2321/0267/products/bhat_small_cropped.png?v=1675454228",
       },
       {
         mainImage:
@@ -309,6 +309,389 @@ export const SaleItems = [
           "//cdn.shopify.com/s/files/1/2321/0267/products/detail2121_3000x.jpg?v=1665145909",
         previewImage:
           "//cdn.shopify.com/s/files/1/2321/0267/products/detail2121_small_cropped.jpg?v=1665145909",
+      },
+    ],
+  },
+  {
+    id: "tsuki-cap",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
+    title: "Tsuki Logo Embroidered Cap",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    colors: [
+      {
+        name: "Black",
+        value: "#656565",
+      },
+      {
+        name: "Beige",
+        value: "#F8F8E9",
+      },
+    ],
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+        title: "Tsuki Socks",
+        id: "tsuki-socks",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_3000x.jpg?v=1669120603",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/CAP_PINK_BLACK_1_small_cropped.jpg?v=1669120603",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
+      },
+    ],
+  },
+  {
+    id: "melted-socks",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_9448_3000x.jpg?v=1675454799",
+    title: "Melted Socks",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+        title: "Tsuki Socks",
+        id: "tsuki-socks",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_9448_3000x.jpg?v=1675454799",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/IMG_9448_small_cropped.jpg?v=1675454799",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
+      },
+    ],
+  },
+  {
+    id: "tsuki-socks",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
+    title: "Tsuki Socks",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    colors: [
+      {
+        name: "Black",
+        value: "#656565",
+      },
+      {
+        name: "Beige",
+        value: "#F8F8E9",
+      },
+    ],
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_3000x.jpg?v=1638976238",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_small_cropped.jpg?v=1638976238",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
+      },
+    ],
+  },
+  {
+    id: "melted-tote-bag",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/meltedtotehero_3000x.jpg?v=1652110249",
+    title: "Melted Tote Bag",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+        title: "Tsuki Socks",
+        id: "tsuki-socks",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/meltedtotehero_3000x.jpg?v=1652110249",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/meltedtotehero_small_cropped.jpg?v=1652110249",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
+      },
+    ],
+  },
+  {
+    id: "mischief-corduroy-pants",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/tmcorduroypants_3000x.jpg?v=1638456234",
+    title: "Mischief Corduroy Trousers",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    size: [
+      {
+        name: "24",
+      },
+      {
+        name: "26",
+      },
+      {
+        name: "28",
+      },
+      {
+        name: "30",
+      },
+      {
+        name: "32",
+      },
+      {
+        name: "34",
+      },
+      {
+        name: "36",
+      },
+    ],
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+        title: "Tsuki Socks",
+        id: "tsuki-socks",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/tmcorduroypants_3000x.jpg?v=1638456234",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/tmcorduroypants_small_cropped.jpg?v=1638456234",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
+      },
+    ],
+  },
+  {
+    id: "mischief-t-shirt",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/tsblacktshirt_3000x.jpg?v=1638455978",
+    title: "Mischief Pocket T-Shirt",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    size: [
+      {
+        name: "XS",
+      },
+      {
+        name: "S",
+      },
+      {
+        name: "M",
+      },
+      {
+        name: "L",
+      },
+      {
+        name: "XL",
+      },
+    ],
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+        title: "Tsuki Socks",
+        id: "tsuki-socks",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/tsblacktshirt_3000x.jpg?v=1638455978",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/tsblacktshirt_small_cropped.jpg?v=1638455978",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
+      },
+    ],
+  },
+  {
+    id: "mischief-flannel",
+    image:
+      "//cdn.shopify.com/s/files/1/2321/0267/products/tmflannel_3000x.jpg?v=1638457194",
+    title: "Mischief Flannel Button Up",
+    discountedPrice: "10.00",
+    originalPrice: "34.00",
+    size: [
+      {
+        name: "XXS",
+      },
+      {
+        name: "XS",
+      },
+      {
+        name: "S",
+      },
+      {
+        name: "M",
+      },
+
+      {
+        name: "L",
+      },
+      {
+        name: "XL",
+      },
+    ],
+    description:
+      "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+    details: [
+      "Adjustable band with metal clasp closure",
+      "Embroidery Details on front and back, made of 100% cotton",
+      "Hat detailed with horn studs",
+      "Care Instructions: Hand wash with soap and water and air dry. Do not put in the washer/dryer",
+    ],
+    recentlyViewed: [
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSUKIFINALBEIGECORDCAP_600x.jpg",
+        title: "Corduroy Tsuki Cap",
+        id: "corduroy-cap",
+      },
+      {
+        image:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/SOCKS_WHITE_1_600x.jpg",
+        title: "Tsuki Socks",
+        id: "tsuki-socks",
+      },
+    ],
+    images: [
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/tmflannel_3000x.jpg?v=1638457194",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/tmflannel_small_cropped.jpg?v=1638457194",
+      },
+      {
+        mainImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_3000x.jpg?v=1663798932",
+        previewImage:
+          "//cdn.shopify.com/s/files/1/2321/0267/products/TSHIRT_PINK_1_190x190_crop_center.jpg?v=1663798932",
       },
     ],
   },

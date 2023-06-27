@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SalesProduct } from "../types/Types";
+import { Product } from "../types/Types";
 
 const SaleItemsModal = ({
   onClose,
@@ -10,7 +10,7 @@ const SaleItemsModal = ({
   onClose: () => void;
   onPrevious: () => void;
   onNext: () => void;
-  selectedProduct: SalesProduct;
+  selectedProduct: Product;
 }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState("");
@@ -109,7 +109,7 @@ const SaleItemsModal = ({
                 alt="pinkcap"
               />
             </div>
-            <div className="mr-12">
+            <div className="mr-12 pb-10">
               {[...Array(4)].map((_, index) => (
                 <div key={index} className="mt-1">
                   <div className="grid grid-cols-5 gap-2">
