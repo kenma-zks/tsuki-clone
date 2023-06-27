@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import ViewPage from "./pages/ViewPage";
 import OurResponsibility from "./pages/OurResponsibility";
 import Sale from "./pages/Sale";
+import Accessories from "./components/Accessories";
+import AccessoriesPage from "./pages/AccessoriesPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "sale",
     element: <Sale />,
+  },
+  {
+    path: "accessories",
+    element: <AccessoriesPage />,
   },
 ]);
 

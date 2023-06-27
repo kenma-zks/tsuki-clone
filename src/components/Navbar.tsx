@@ -82,18 +82,22 @@ const Navbar = () => {
             {isSaleHovered && (
               <div className="absolute w-50 text-left z-20">
                 <div className="bg-[#F4E0EA] border border-black border-t-0 pb-3 pl-4">
-                  <p
-                    className="py-2 pb-0 px-4  text-black text-md tracking-widest font-regular hover:text-white cursor-pointer"
-                    style={{ letterSpacing: "-0.2px" }}
-                  >
-                    SALE
-                  </p>
-                  <p
-                    className="py-1 px-4 text-black text-md tracking-widest font-regular hover:text-white cursor-pointer"
-                    style={{ letterSpacing: "-0.2px" }}
-                  >
-                    ACCESSORIES
-                  </p>
+                  <Link to="/sale">
+                    <p
+                      className="py-2 pb-0 px-4  text-black text-md tracking-widest font-regular hover:text-white cursor-pointer"
+                      style={{ letterSpacing: "-0.2px" }}
+                    >
+                      SALE
+                    </p>
+                  </Link>
+                  <Link to="/accessories">
+                    <p
+                      className="py-1 px-4 text-black text-md tracking-widest font-regular hover:text-white cursor-pointer"
+                      style={{ letterSpacing: "-0.2px" }}
+                    >
+                      ACCESSORIES
+                    </p>
+                  </Link>
                   <p
                     className=" py-1 px-4 text-black text-md tracking-widest font-regular hover:text-white cursor-pointer"
                     style={{ letterSpacing: "-0.2px" }}

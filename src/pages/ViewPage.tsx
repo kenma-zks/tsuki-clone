@@ -14,12 +14,17 @@ import { RootState } from "../store/store";
 import { setSelectedProduct } from "../store/productSlice";
 import { SaleItems } from "../components/Links/SaleItemsLink";
 import { AccessoriesLink } from "../components/Links/ImageLinks";
+import { AccessoriesItemsLink } from "../components/Links/AccesoriesLinks";
 
 const ViewPage = () => {
   const dispatch = useDispatch();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const productData = [...SaleItems, ...AccessoriesLink];
+  const productData = [
+    ...SaleItems,
+    ...AccessoriesLink,
+    ...AccessoriesItemsLink,
+  ];
 
   const { productId } = useParams<{ productId?: string }>();
 
@@ -271,7 +276,7 @@ const ViewPage = () => {
       <div className="flex justify-center items-center mt-10 w-full border border-black">
         <p className="font-thin text-2xl py-4">Recently Viewed</p>
       </div>
-      <div className="flex">
+      <div className="flex ">
         {selectedProduct?.recentlyViewed.map((item, index) => (
           <div
             key={index}
