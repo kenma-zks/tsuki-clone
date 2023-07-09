@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { setSelectedProduct } from "../store/productSlice";
-import { AccessoriesLink } from "./Links/ImageLinks";
+import { AccessoriesLink } from "../Links/ImageLinks";
 import { useDispatch } from "react-redux";
 import ViewModal from "./Card/ViewModal";
 

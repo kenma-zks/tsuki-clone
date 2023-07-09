@@ -3,7 +3,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { SaleItems } from "../components/Links/SaleItemsLink";
+import { SaleItems } from "../Links/SaleItemsLink";
 import SaleItemsModal from "../components/Card/SaleItemsModal";
 import { useDispatch } from "react-redux";
 import { setSelectedProduct } from "../store/productSlice";

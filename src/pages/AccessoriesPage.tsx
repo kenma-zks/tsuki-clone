@@ -7,7 +7,7 @@ import ViewModal from "../components/Card/ViewModal";
 import { useDispatch } from "react-redux";
 import { setSelectedProduct } from "../store/productSlice";
 import { Link } from "react-router-dom";
-import { AccessoriesItemsLink } from "../components/Links/AccesoriesLinks";
+import { AccessoriesItemsLink } from "../Links/AccesoriesLinks";
 
 const AccessoriesPage = () => {
   const dispatch = useDispatch();

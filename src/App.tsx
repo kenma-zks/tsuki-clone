@@ -5,6 +5,7 @@ import OurResponsibility from "./pages/OurResponsibility";
 import Sale from "./pages/Sale";
 import Accessories from "./components/Accessories";
 import AccessoriesPage from "./pages/AccessoriesPage";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "accessories",
     element: <AccessoriesPage />,
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ]);
 

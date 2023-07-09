@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Product } from "../types/Types";
+import { Product } from "../../types/Types";
 
 const SaleItemsModal = ({
   onClose,

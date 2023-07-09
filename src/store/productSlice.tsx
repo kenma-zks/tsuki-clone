@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Product } from "../components/types/Types";
+import { Product } from "../types/Types";
 
 interface ProductState {
   selectedProduct: Product | null;

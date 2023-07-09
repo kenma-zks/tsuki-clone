@@ -12,9 +12,9 @@ import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { setSelectedProduct } from "../store/productSlice";
-import { SaleItems } from "../components/Links/SaleItemsLink";
-import { AccessoriesLink } from "../components/Links/ImageLinks";
-import { AccessoriesItemsLink } from "../components/Links/AccesoriesLinks";
+import { SaleItems } from "../Links/SaleItemsLink";
+import { AccessoriesLink } from "../Links/ImageLinks";
+import { AccessoriesItemsLink } from "../Links/AccesoriesLinks";
 
 const ViewPage = () => {
   const dispatch = useDispatch();
